@@ -54,7 +54,3 @@ The application consists of three main entities: `User`, `WorkoutSession`, and `
 - `sets`
 - `weight`
 - `workout_session_id` (Foreign Key)
-
-## UML Class Diagram
-
-![img.png](img.png)
