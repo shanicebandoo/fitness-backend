@@ -12,8 +12,8 @@ import java.util.List;
 
 @Service
 public class WorkoutSessionService {
-    private final WorkoutSessionRepository workoutSessionRepository;
-    private final UserService userService;
+    private WorkoutSessionRepository workoutSessionRepository;
+    private UserService userService;
 
     public WorkoutSessionService(WorkoutSessionRepository workoutSessionRepository, UserService userService){
         this.workoutSessionRepository =  workoutSessionRepository;
@@ -38,7 +38,6 @@ public class WorkoutSessionService {
     @Transactional
     public WorkoutSession update(Long id, WorkoutSession workoutSession) {
         WorkoutSession existingWorkoutSession = findById(id);
-        existingWorkoutSession.setDescription(workoutSession.getDescription());
         existingWorkoutSession.setDate(workoutSession.getDate());
         existingWorkoutSession.setWorkoutDuration(workoutSession.getWorkoutDuration());
         return workoutSessionRepository.save(existingWorkoutSession);
