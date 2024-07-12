@@ -20,6 +20,7 @@ The Fitness Backend Application is a RESTful web service built with Java and Spr
 - Spring Data JPA
 - MySQL
 - JUnit
+- MockMvc
 
 ## Architecture
 
