@@ -1,5 +1,6 @@
 package com.fitness.backend.controllers;
 
+import com.fitness.backend.DTO.WorkoutSessionDTO;
 import com.fitness.backend.entities.WorkoutSession;
 import com.fitness.backend.service.WorkoutSessionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,12 @@ public class WorkoutSessionController {
     public ResponseEntity<WorkoutSession> getWorkoutSessionById(@PathVariable Long id) {
         WorkoutSession session = workoutSessionService.findById(id);
         return new ResponseEntity<>(session, HttpStatus.OK);
+    }
+
+    @GetMapping("/workout-sessions-with-exercises")
+    public ResponseEntity<List<WorkoutSessionDTO>> getWorkoutSessionsWithExercises() {
+        List<WorkoutSessionDTO> sessions = workoutSessionService.getAllWorkoutSessionsWithExercises();
+        return new ResponseEntity<>(sessions, HttpStatus.OK);
     }
 //       POST
     @PostMapping("/workout-sessions")
